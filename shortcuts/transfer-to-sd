@@ -1,0 +1,4 @@
+#!/data/data/com.termux/files/usr/bin/bash
+rsync --remove-source-files -avu /storage/emulated/0/DCIM/ /storage/6461-3934/DCIM/
+rsync --remove-source-files -avu /storage/emulated/0/Pictures/ /storage/6461-3934/Pictures/
+rsync --remove-source-files -avu /storage/emulated/0/Downloads/ /storage/6461-3934/Downloads/

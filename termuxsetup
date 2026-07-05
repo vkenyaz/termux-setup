@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+clear
+set -e
+cd ~/ || exit 1
+
+printf "Starting Termux setup installation...\n"
+
+# Install necessary packages for setup to work at all
+pkg update
+pkg -y install git curl
+
+# Clone setup repository
+git clone --depth=1 --recurse-submodules https://codeberg.org/knyz/termux-setup.git || exit 1
+cd termux-setup || exit 1
+
+# Install packages
+pkg install -y $(cat "pkgs.txt") || exit 1
+
+# Install shortcuts-
+mv -v shortcuts/* ~/.shortcuts/
+
+# Install deacon, hackenschmidt, and rose
+cd ~/.local/bin/ 
+curl -OfsSL "https://codeberg.org/knyz/deacon/raw/branch/master/deacon" && chmod +x deacon
+curl -OfsSL "https://codeberg.org/knyz/hackenschmidt/raw/branch/master/hackenschmidt.tcl" && chmod +x hackenschmidt.tcl
+git clone --depth 1 "https://codeberg.org/knyz/rose" && cd rose &&  chmod +x rose && mv rose ../
+
+cd ~ || exit 1
+
+printf "Termux setup installed.\n"

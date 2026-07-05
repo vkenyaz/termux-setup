@@ -1,0 +1,3 @@
+#!/data/data/com.termux/files/usr/bin/bash
+curl wttr.in/?1?q?F?n
+read

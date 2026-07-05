@@ -1,0 +1,3 @@
+#!/data/data/com.termux/files/usr/bin/bash
+cd /storage/6461-3934/Knowledge
+nvim journal/$(date -I).md index.md
